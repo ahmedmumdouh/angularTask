@@ -1,39 +1,33 @@
-<p>users-detials works!</p>
-
-
-
-
-
-
-
-
-
-<div *ngIf="user;else noUser">
-    <h2>
-        {{user.name}}
-    </h2>
-    <p>
-        {{user.email}}
-    </p>
-    <p>
-        {{user.age}}
-    </p>
-    <p>
-        {{user.city}}
-    </p>
+<div class="border p-3 bg-light shadow-sm p-3 mb-5 bg-white rounded">
+    <div *ngIf="user;else noUser">
+        <h2>
+            Name: {{user.name}}
+        </h2>
+        <p>
+            Email: {{user.email}}
+        </p>
+        <p>
+            Age: {{user.age}}
+        </p>
+        <p>
+            City: {{user.city}}
+        </p>
+    </div>
+    
+    <ng-template #noUser>
+     <p>
+         No User
+     </p>
+    </ng-template>
+    
+    <button class="btn btn-info mr-1" (click)="triggerModal(modalData)">Edit</button>
+    
+    
+    <input type="button" class="btn btn-danger" value="delete" (click)="deleteUser()">
 </div>
 
-<ng-template #noUser>
- <p>
-     No User
- </p>
-</ng-template>
 
-<button class="btn btn-info" (click)="triggerModal(modalData)">Edit</button>
 
-<!-- <input type="button" class="btn btn-info" value="edit" (click)="EditUser()"> -->
-
-<input type="button" class="btn btn-danger" value="delete" (click)="deleteUser()">
 
 
 <ng-template #modalData let-modal>
