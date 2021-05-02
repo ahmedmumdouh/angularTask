@@ -1,0 +1,59 @@
+
+
+<!-- <app-first></app-first> -->
+<!-- <app-second></app-second> -->
+<!-- <app-third></app-third> -->
+<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <app-forth></app-forth> -->
+<!-- Button trigger modal -->
+
+
+
+
+<!-- <h1 [appCustom]="{bgColor:'red',fgColor:'green'}">UserDemo</h1> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+          <a class="nav-link" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="text-danger" routerLink="">home <span class="sr-only">(current)</span> </a>
+        </li>
+        <li class="nav-item">
+          <!-- <a class="nav-link" href="#">Features</a> -->
+          <a class="nav-link" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="text-danger" routerLink="users">users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="text-danger" routerLink="fdjkfgdh" tabindex="-1" aria-disabled="true">NotFound</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <h1 class="text-center">hello in Main App</h1>
+
+<div class="container" >
+    
+
+
+    <!-- <app-register (studentRegister)="receiveStudent($event)"></app-register> -->
+    
+    <!-- <app-register-rectactive (studentRegister)="receiveStudent($event)"></app-register-rectactive> -->
+
+    <!-- <app-students [prop]="tempstudent"></app-students> -->
+
+
+    <!-- <ul>
+        <li> <a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="text-danger" routerLink="">home</a> </li>
+        <li> <a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="text-danger" routerLink="users">users</a> </li>
+        <li> <a routerLinkActive="text-danger" routerLink="profile">profile</a> </li>
+        <li> <a routerLinkActive="text-danger" routerLink="users/25">users</a> </li>
+        <li> <a routerLinkActive="text-danger" routerLink="uham">uham</a> </li>
+
+    </ul> -->
+    <router-outlet></router-outlet>
+    
+</div>

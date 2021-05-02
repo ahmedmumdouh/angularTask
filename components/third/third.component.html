@@ -1,0 +1,18 @@
+
+<div class="container text-center justify-content-center" style="margin: auto;">
+    <p>task1</p>
+
+    <div >
+        <img [src]="curSrc" alt="" style="width: 300px; height: 300px;">
+
+    </div>
+
+    <div >
+        <input type="button" class="btn btn-primary" value="prev"  (click)="liftFun()"  style="display: inline;"/>
+        <input type="button" class="btn btn-info " [value]="playFlag" (click)="playFun()" style="display: inline;">
+        <input type="button" class="btn btn-primary" value="next" (click)="rightFun()" style="display: inline;"/>
+    </div>
+
+</div>
+
+

@@ -1,0 +1,79 @@
+<p>register-rectactive works!</p>
+
+
+
+
+
+
+<button class="btn btn-danger" (click)="triggerModal(modalData)">add task</button>
+
+<ng-template #modalData let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Angular Bootstrap Modal Popup</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <form  [formGroup] = "myForm" >
+        <div class="form-group" >
+            <input  formControlName="name"  name="name" type="text" class="form-control"   />
+            <p *ngIf="!nameStatus" class="alert alert-danger">
+                Name must in range 2-14 
+            </p>
+        </div>
+        <div class="form-group">
+            <input formControlName="desc" name="desc" type="text" class="form-control"  />
+            <p *ngIf="!descStatus"  class="alert alert-danger">
+                Description must start with "as" and end with "."
+            </p>
+        </div>
+        <div class="form-group">
+            <input type="button" class="btn btn-success" value="submit" (click)="register()">
+        </div>
+          <p *ngIf="myForm.invalid;else falseBlock"  class="alert alert-danger">
+                form is not valid
+            </p>
+            <ng-template #falseBlock>
+                <p class="alert alert-success">
+                    Form is valid
+                </p>
+            </ng-template>
+            
+        <!-- <div class="form-group">
+            <input type="button" class="btn btn-success" value="submit" (click)="register(name.value,age.value)">
+        </div> -->
+    
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>

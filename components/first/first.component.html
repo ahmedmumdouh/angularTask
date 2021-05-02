@@ -1,0 +1,16 @@
+<h1 class="header">our first compo</h1>
+{{title}}
+
+<input type="text" [value]="name"  (keyup)="textChanged($event)" />
+
+<p>{{name}}</p>
+
+
+<input type="button" value="click" (click)="clicked()" />
+
+
+<input type="text" [(ngModel)]="name" />
+
+<!-- <img src="/assets/images/image.jpg" alt=""> -->
+
+<img [src]="imageSrc"  style="width: 200px; height: 200px;" alt="">

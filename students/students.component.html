@@ -1,0 +1,28 @@
+<p>students works!</p>
+
+[ {{compeleted}} of {{ list?.length }} ] is done 
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>name</th>
+            <th>description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of list;index as i;first as isFirst">
+            <td *ngIf="isFirst;else elseBlock">{{i+1}}</td>
+            <ng-template #elseBlock>
+                <td>else</td>
+            </ng-template>
+            <td *ngIf="!student.done;else elseDone" (click)="completeTask(i)" >{{student.name}}</td>
+            <ng-template #elseDone>
+                <td (click)="completeTask(i)"><del>{{student.name}}</del></td>
+            </ng-template>
+            <td>{{student.desc}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<!-- <input type="text" (change)="fn($event)"> -->
