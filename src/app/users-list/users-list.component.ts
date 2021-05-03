@@ -14,7 +14,7 @@ export class UsersListComponent implements OnInit , OnDestroy {
 
   constructor(private myService:UsersService,private modalService: NgbModal) { }
 
-  subscriber:any
+  subscriber:any[]=[]
   users:User[] = []
   filteredUsers:User[] = []
   // userSearchName:string=''
@@ -25,21 +25,22 @@ export class UsersListComponent implements OnInit , OnDestroy {
   }
 
   getAllUsers(){
-    this.subscriber = this.myService.getUsres()
+    this.subscriber.push( this.myService.getUsres()
     .subscribe({
       next:(res)=>{
         console.log(res);
         this.users = res.body as User[]
         this.filteredUsers = this.users
+
       },
       error:(err)=>{
         console.log(err);
       }
-    });
+    }) )
   }
 
   ngOnDestroy():void{
-    this.subscriber.unsubscribe();
+    this.subscriber.map((item)=> item.unsubscribe() );
   }
 
   onSearch(e:any){
@@ -71,7 +72,7 @@ export class UsersListComponent implements OnInit , OnDestroy {
     if(this.myForm.valid){
       // this.studentRegister.emit(this.myForm.value)
       // this.myForm.setValue({name:"",desc:""})
-      this.subscriber = this.myService.setUser(this.myForm.value)
+      this.subscriber.push( this.myService.setUser(this.myForm.value)
       .subscribe({
         next:(res)=>{
           console.log(res);
@@ -81,7 +82,7 @@ export class UsersListComponent implements OnInit , OnDestroy {
         error:(err)=>{
           console.log(err);
         }
-      });
+      }) )
     }
 
   }

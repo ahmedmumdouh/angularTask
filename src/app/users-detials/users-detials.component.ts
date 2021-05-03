@@ -1,4 +1,4 @@
-import { Component, Input ,OnInit } from '@angular/core';
+import { Component, OnDestroy,OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router' ;
 import {UsersService } from '../services/users.service' ;
 import {User} from '../models/user';
@@ -11,7 +11,7 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
   styles: [
   ]
 })
-export class UsersDetialsComponent implements OnInit {
+export class UsersDetialsComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router,private myActivatedRoute:ActivatedRoute,private myService:UsersService,private modalService: NgbModal) {
     console.log(myActivatedRoute.snapshot.params.id) ;
@@ -24,7 +24,7 @@ export class UsersDetialsComponent implements OnInit {
             }
    }
    id:string ;
-   subscriber:any
+   subscriber:any[] = []
    user:any
   ngOnInit(): void {
     this.getUser();
@@ -32,7 +32,7 @@ export class UsersDetialsComponent implements OnInit {
 
 
   getUser(){
-    this.myService.getUserById(this.id)
+    this.subscriber.push( this.myService.getUserById(this.id)
     .subscribe({
       next:(user)=>{
         this.user = user as User ; 
@@ -47,13 +47,13 @@ export class UsersDetialsComponent implements OnInit {
       error:(err)=>{
         console.log(err);
       }
-    })
+    }) )
   }
 
   deleteUser(){
     if(window.confirm('Do you want to delete this user ?')){
 
-      this.myService.delUserById(this.id)
+      this.subscriber.push( this.myService.delUserById(this.id)
       .subscribe({
         next:(res)=>{
           this.Home();
@@ -61,7 +61,7 @@ export class UsersDetialsComponent implements OnInit {
         error:(err)=>{
           console.log(err);
         }
-      })
+      }) )
     } 
   }
 
@@ -85,13 +85,16 @@ export class UsersDetialsComponent implements OnInit {
 
   })
 
-  
+  ngOnDestroy():void{
+    this.subscriber.map((item)=> item.unsubscribe() );
+  }
+
   editUser(){
     console.log(this.myForm.value);
     if(this.myForm.valid){
       // this.studentRegister.emit(this.myForm.value)
       // this.myForm.setValue({name:"",desc:""})
-      this.subscriber = this.myService.putUser(this.myForm.value,this.id)
+      this.subscriber.push( this.myService.putUser(this.myForm.value,this.id)
       .subscribe({
         next:(res)=>{
           console.log(res);
@@ -101,7 +104,7 @@ export class UsersDetialsComponent implements OnInit {
         error:(err)=>{
           console.log(err);
         }
-      });
+      }) )
       this.modalService.dismissAll();
     }
 
