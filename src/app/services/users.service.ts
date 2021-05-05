@@ -8,7 +8,7 @@ import {User} from '../models/user';
 })
 export class UsersService {
 
-  readonly baseURL:string = "http://localhost:3000/users/";
+  readonly baseURL:string = "https://testy-application.herokuapp.com/users";
 
   myObservable:Observable<number>
   constructor(private myclient:HttpClient) {
@@ -31,8 +31,9 @@ export class UsersService {
   }
 
   getUsres(){
+    const headers = { 'content-type': 'application/json'}  
     let res = this.myclient.get(this.baseURL,{
-      observe:'response'
+      observe:'response','headers':headers
     });
     return res ;
   }

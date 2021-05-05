@@ -11,10 +11,10 @@ import { UsrComponent } from './usr/usr.component';
 
 const routes:Routes = [
   // {path:"", component:HomeComponent},
-  {path:"", redirectTo:'users',pathMatch:'full'},
-  {path:"users", component:UsersListComponent},
+  {path:"", redirectTo:'userss',pathMatch:'full'},
+  {path:"userss", component:UsersListComponent},
   {path:"user", component:ProfileComponent},
-  {path:"users/:id", component:UsersDetialsComponent},
+  {path:"userss/:id", component:UsersDetialsComponent},
   {path:"**", component:NotFoundComponent},
 ]
 
