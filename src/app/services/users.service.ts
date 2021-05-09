@@ -8,7 +8,7 @@ import {User} from '../models/user';
 })
 export class UsersService {
 
-  readonly baseURL:string = "https://angulart-learn.herokuapp.com/users";
+  readonly baseURL:string = "https://angular-users-task.herokuapp.com/users";
 
   myObservable:Observable<number>
   constructor(private myclient:HttpClient) {
