@@ -12,7 +12,6 @@ import { UsrComponent } from './usr/usr.component';
 const routes:Routes = [
   // {path:"", component:HomeComponent},
   {path:"", redirectTo:'usrs',pathMatch:'full'},
-  {path:"/usrs", redirectTo:'usrs',pathMatch:'full'},
   {path:"usrs", component:UsersListComponent},
   {path:"usrs/:id", component:UsersDetialsComponent},
   {path:"**", component:NotFoundComponent},
