@@ -1,13 +1,6 @@
 {
   "users": [
     {
-      "name": "Monaa",
-      "email": "m@gmail.com",
-      "city": "Alexx",
-      "age": 27,
-      "id": 4
-    },
-    {
       "id": 5,
       "name": "Ali2",
       "age": 18,
@@ -34,13 +27,6 @@
       "city": "fayoum",
       "age": 20,
       "id": 12
-    },
-    {
-      "name": "ahmed mamdouh abdelWahab",
-      "email": "ahmedmumdouh@gmail.com",
-      "city": "fdsfdsf",
-      "age": 18,
-      "id": 14
     }
   ]
 }

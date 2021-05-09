@@ -8,7 +8,7 @@ import {User} from '../models/user';
 })
 export class UsersService {
 
-  readonly baseURL:string = "https://testy-application.herokuapp.com/users";
+  readonly baseURL:string = "http://localhost:8080/users";
 
   myObservable:Observable<number>
   constructor(private myclient:HttpClient) {

@@ -20,7 +20,7 @@
     <app-usr *ngFor="let user of filteredUsers" [userprop]="user"></app-usr>
 </div>
 <ng-template #noUsers>
-    <p class="alert alert-danger">
+    <p class="alert alert-danger fw-bold">
         No Users
     </p>
 </ng-template>
@@ -70,18 +70,15 @@
 
   </div>
   <div class="modal-footer">
-    <p *ngIf="myForm.invalid;else falseBlock"  class="alert alert-danger ">
+    <p *ngIf="myForm.invalid;"  class="alert alert-danger " style="margin: auto;">
         form is not valid
     </p>
-    <ng-template #falseBlock>
-        <p class="alert alert-success">
-            Form is valid
-        </p>
-    </ng-template>  
-    <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
-    <div class="form-group">
-        <input type="button" class="btn btn-success" value="submit" (click)="register()">
-    </div>
+   
+    
+    <input type="button" class="btn btn-lg btn-block btn-success" value="submit" (click)="register()">
+    <button type="button" class="btn btn-lg btn-block btn-danger" (click)="modal.close('Save click')">Close</button>
+
+    
   </div>
 </form>
 

@@ -51,18 +51,19 @@ export class UsersDetialsComponent implements OnInit, OnDestroy {
   }
 
   deleteUser(){
-    if(window.confirm('Do you want to delete this user ?')){
+   
 
       this.subscriber.push( this.myService.delUserById(this.id)
       .subscribe({
         next:(res)=>{
+          this.modalService.dismissAll();
           this.Home();
         },
         error:(err)=>{
           console.log(err);
         }
       }) )
-    } 
+    
   }
 
   EditUser(){

@@ -1,17 +1,16 @@
-<div class="border p-3 bg-light shadow-sm p-3 mb-5 bg-white rounded">
+<div class="border p-3 shadow-sm p-3 mt-3 mb-5 bg-info rounded justify-content-center text-center text-white fw-bold">
     <div *ngIf="user;else noUser">
-        <h2>
-            Name: {{user.name}}
+        <h2 style="font-family: fantasy; font-size: xx-large; color: darkblue;">
+           {{user.name}}
         </h2>
-        <p>
-            Email: {{user.email}}
-        </p>
-        <p>
-            Age: {{user.age}}
-        </p>
-        <p>
-            City: {{user.city}}
-        </p>
+      
+          {{user.email}}
+            <br>
+          {{user.age}}
+            <br>
+          {{user.city}}
+            <br>
+            <hr>
     </div>
     
     <ng-template #noUser>
@@ -20,10 +19,10 @@
      </p>
     </ng-template>
     
-    <button class="btn btn-info mr-1" (click)="triggerModal(modalData)">Edit</button>
+    <button class="btn btn-block btn-lg btn-success mr-1" (click)="triggerModal(modalData)">Edit</button>
     
     
-    <input type="button" class="btn btn-danger" value="delete" (click)="deleteUser()">
+    <input type="button" class="btn btn-block btn-lg btn-danger" value="delete" (click)="triggerModal(modalData2)">
 </div>
 
 
@@ -65,23 +64,41 @@
                   city required 
               </p>
           </div>
-          <br>
-             
+               
   
     </div>
     <div class="modal-footer">
-      <p *ngIf="myForm.invalid;else falseBlock"  class="alert alert-danger ">
+      <p *ngIf="myForm.invalid;"  class="alert alert-danger " style="margin: auto;">
           form is not valid
       </p>
-      <ng-template #falseBlock>
-          <p class="alert alert-success">
-              Form is valid
-          </p>
-      </ng-template>  
-      <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
-      <div class="form-group">
-          <input type="button" class="btn btn-success" value="update" (click)="editUser()">
-      </div>
+          <input type="button" class="btn btn-lg btn-block btn-success" value="update" (click)="editUser()">
+          <button type="button" class="btn btn-lg btn-block btn-danger" (click)="modal.close('Save click')">Close</button>      
+    </div>
+  </form>
+  
+  </ng-template>
+
+
+
+
+  <ng-template #modalData2 let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Delete User</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <form  [formGroup] = "myForm" >
+  
+    <div class="modal-body">
+        <p>
+            Do you want to delete this user ?
+        </p>
+         
+    </div>
+    <div class="modal-footer">
+          <input type="button" class="btn btn-lg btn-block btn-danger" value="Delete" (click)="deleteUser()">
+          <button type="button" class="btn btn-lg btn-block btn-info" (click)="modal.close('Save click')">Close</button>      
     </div>
   </form>
   
